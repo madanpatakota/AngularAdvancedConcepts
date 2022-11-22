@@ -1,0 +1,47 @@
+<!-- # -->
+
+<input type="text" (keypress)="keyPressChanges(txtElmenet)" #txtElmenet />
+
+<!-- <table #tabledata></table> -->
+
+<!-- child of the view -->
+
+<!-- 1. i do't want to pass the any parameter to the method
+2. i want to pass the structrure of the element from
+.html to .ts file -->
+
+<br />
+<div class="container">
+  <form>
+    <div class="form-group" style="margin:10px">
+      <input
+        class="form-control col-md-7"
+        placeholder="UserName"
+        type="text"
+        #txtUserName
+      />
+    </div>
+    
+    <div class="form-group" style="margin:10px">
+      <input
+        class="form-control col-md-7"
+        placeholder="Password"
+        type="text"
+        #txtPassword
+      />
+    </div>
+
+    <div class="form-group" style="margin:10px">
+      <input
+        class="form-control col-md-7"
+        placeholder="Location"
+        type="text"
+        #txtLocation
+      />
+    </div>
+  </form>
+
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="evtClick()">Click</button>
+  </div>
+</div>
