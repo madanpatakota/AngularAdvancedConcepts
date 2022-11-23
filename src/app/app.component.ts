@@ -7,4 +7,29 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularAdvancedConcepts';
+
+  value = "titleForCustomersDetailsPage";
+
+  
+  customersInformation = [{
+    name : "Clerk",
+    password : "clerk!@#$",
+    location: "UK"
+ },
+ {
+   name : "William",
+   password : "William!@#$",
+   location: "US"
+}];
+
+
+
+   evtcustomerDetails(info:any){
+      console.log("in App component " ,info);
+      this.customersInformation.push(info);
+   }
+
+
+
+
 }

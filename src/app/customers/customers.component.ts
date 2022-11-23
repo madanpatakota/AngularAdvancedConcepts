@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild , Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-customers',
@@ -11,6 +11,9 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+
 
 
 
@@ -27,12 +30,28 @@ export class CustomersComponent implements OnInit {
  // let                        locaiotn : string 
 
 
+
+ // i want to pass the data | emit | post | inject 
+
+
+ @Output() evtCustomer = new EventEmitter<any>();
+
+ //Now CustomersComponent having the output decarator when click happend it serves the customerInfo
  evtClick(){
     //console.log(txtUserName);
     console.log(this.txtUserName.nativeElement.value);
     console.log(this.txtPassword.nativeElement.value);
     console.log(this.txtLocation.nativeElement.value);
+    let customerInfo = {
+       name : this.txtUserName.nativeElement.value,
+       password : this.txtPassword.nativeElement.value,
+       location : this.txtLocation.nativeElement.value
+    }
 
+    // let sometext = "some information about the test data"
+    // console.log(" from  Customers component component " , sometext);
+    // this.evtCustomer.emit(sometext);
+    this.evtCustomer.emit(customerInfo);
   }
 
 
