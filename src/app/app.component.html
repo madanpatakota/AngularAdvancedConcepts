@@ -6,14 +6,37 @@
 
   <!-- <input type="text" [value] = "_______" (keypress) = _________________"> -->
 
-  <app-customers (evtCustomer) = "evtcustomerDetails($event)" >
+  <app-customers    [customerInputtingInfo] = "customer" (evtCustomer) = "evtcustomerDetails($event)" >
 
+    <!-- <input type="text" /> -->
 
-    
+    <div class="form-group" style="margin: 10px">
+      <input
+        class="form-control col-md-7"
+        placeholder="EmailID"
+        type="text"
+        #txtEmailID
+      />
+    </div>
+
 
   </app-customers>
 
-  <app-customers-details  [captureTitleFromApp] = "value"   [customerInfo] = customersInformation></app-customers-details>
+
+  <button class="btn btn-success" (click)="evtChanged()">Click</button>
+
+
+
+  <!-- <button           (click)="evtclick()"></button> -->
+
+
+  <app-customers-details (customerRowEmitter)="evtCustomerRowCaptureDetails($event)"  [captureTitleFromApp] = "value"   [customerInfo] = customersInformation>
+
+
+    <p #paragraph>Iam the paragraph</p>
+
+
+  </app-customers-details>
   <!-- <input                 [value]=       =  "___________"      >  -->
 
 

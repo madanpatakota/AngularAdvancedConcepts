@@ -11,11 +11,13 @@
 .html to .ts file -->
 
 <br />
-<div class="container" style="margin:30px;padding:50px;background-color:lightyellow">
-
+<div
+  class="container"
+  style="margin: 30px; padding: 50px; background-color: lightyellow"
+>
   <h3>Cusomers Registration page.(Customers component)</h3>
   <form>
-    <div class="form-group" style="margin:10px">
+    <div class="form-group" style="margin: 10px">
       <input
         class="form-control col-md-7"
         placeholder="UserName"
@@ -23,8 +25,8 @@
         #txtUserName
       />
     </div>
-    
-    <div class="form-group" style="margin:10px">
+
+    <div class="form-group" style="margin: 10px">
       <input
         class="form-control col-md-7"
         placeholder="Password"
@@ -33,7 +35,7 @@
       />
     </div>
 
-    <div class="form-group" style="margin:10px">
+    <div class="form-group" style="margin: 10px">
       <input
         class="form-control col-md-7"
         placeholder="Location"
@@ -41,9 +43,20 @@
         #txtLocation
       />
     </div>
+    <ng-content></ng-content> 
   </form>
 
   <div class="form-group">
     <button class="btn btn-primary" (click)="evtClick()">Click</button>
   </div>
+
+  
+
+  <h5>
+    <div *ngIf="customerInputtingInfo != null">
+      {{ customerInputtingInfo.name }}
+      {{ customerInputtingInfo.location }}
+      {{ customerInputtingInfo.password }}
+    </div>
+  </h5>
 </div>
