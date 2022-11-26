@@ -1,0 +1,12 @@
+
+
+
+ngstyle
+
+ngclass
+
+ngIf
+
+ngSwitch
+
+ngFor

@@ -7,7 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output ,
     AfterViewChecked,
     OnDestroy,
     ContentChild,
-   ElementRef } from '@angular/core';
+   ElementRef, 
+   ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-customers-details',
@@ -19,7 +20,10 @@ export class CustomersDetailsComponent implements
  OnChanges , 
  DoCheck ,
  AfterContentInit ,
- AfterContentChecked
+ AfterContentChecked,
+ AfterViewInit,
+ AfterViewChecked,
+ OnDestroy
 {
 
   @Input() customerInfo:any;
@@ -28,11 +32,24 @@ export class CustomersDetailsComponent implements
 
   @Output() customerRowEmitter  = new EventEmitter<any>();
 
+
+
+
+  @ViewChild("elementRef") _elementref : ElementRef;
+
   constructor() { }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
-    console.log("ngOninit is loading.......")
+    console.log("ngOninit is loading.......");
+
+    //console.log("paginit event paragraph" , this.paragraph.nativeElement);
+    console.log("h2 element ref is in page init event " , this._elementref);
   }
+
+
 
 
 
@@ -63,6 +80,36 @@ export class CustomersDetailsComponent implements
   ngAfterContentChecked(){
     console.log("ngAfterContentChecked changes");
   }
+
+
+  /*this method is avaible in the AfterViewInit() angualr interface*/
+  ngAfterViewInit(){
+    console.log("AfterView init loaded");
+    console.log("h2 element ref is in the after view init " , this._elementref);
+  }
+
+
+  ngAfterViewChecked(){
+    console.log("ngAfterViewChecked changes");
+  }
+
+
+  // ngOninit 
+  ngDestory(){
+    /****************/
+
+    console.log("ngDestroy called");
+
+
+  }
+
+
+
+
+
+
+
+
 
 
 
