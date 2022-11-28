@@ -1,13 +1,12 @@
 <div style="margin: 10px; padding: 50px; background-color: lightsalmon">
-
-
-  <h1 style="text-align:center"t>App Component</h1>
-
+  <h1 style="text-align: center" t>App Component</h1>
 
   <!-- <input type="text" [value] = "_______" (keypress) = _________________"> -->
 
-  <app-customers    [customerInputtingInfo] = "customer" (evtCustomer) = "evtcustomerDetails($event)" >
-
+  <app-customers
+    [customerInputtingInfo]="customer"
+    (evtCustomer)="evtcustomerDetails($event)"
+  >
     <!-- <input type="text" /> -->
 
     <div class="form-group" style="margin: 10px">
@@ -18,44 +17,78 @@
         #txtEmailID
       />
     </div>
-
-
   </app-customers>
-
 
   <button class="btn btn-success" (click)="evtChanged()">Click</button>
 
-
-
   <!-- <button           (click)="evtclick()"></button> -->
 
-
-  <app-customers-details (customerRowEmitter)="evtCustomerRowCaptureDetails($event)"  [captureTitleFromApp] = "value"   [customerInfo] = customersInformation>
-
-
+  <app-customers-details
+    (customerRowEmitter)="evtCustomerRowCaptureDetails($event)"
+    [captureTitleFromApp]="value"
+    [customerInfo]="customersInformation"
+  >
     <p #paragraph>Iam the paragraph</p>
-
-
   </app-customers-details>
   <!-- <input                 [value]=       =  "___________"      >  -->
 
+  <div
+    class="container"
+    style="margin: 30px; padding: 50px; background-color: lightcyan"
+  >
+    <h4>Custom Directives</h4>
+
+    <div style="padding: 5px; margin: 10px">
+      <!-- <p style="" -->
+
+      <p [color]="'green'" [colorout]="'white'" appColorDir>
+        I am the paragrapth
+      </p>
+
+      <span [color]="'purple'" [colorout]="'yellow'" appColorDir>
+        I am span tag</span
+      >
+
+      <!-- <input type="text" appColorDir> -->
+    </div>
+  </div>
+
+  <div
+    class="container"
+    style="margin: 30px; padding: 50px; background-color: lightgray"
+  >
+    <h4>Pipes</h4>
+
+    <div style="padding: 5px; margin: 10px">
+     <p>{{name | uppercase }}</p>  
+     <p>{{name | lowercase }}</p>
+
+
+     <p>{{todayDate}}</p>
+     <p>{{todayDate | date : 'mediumDate'}}</p>
+
+          <!-- customers | arrayFilter  : _______ -->
+
+
+     <p>{{name   | trimmer | uppercase}}</p> 
+
+
+     <p> {{value | trimmer | lowercase}}</p>
+
+
+     <ul>
+        <li *ngFor = "let item of customers | arrayFilter : 2 : 'xyz'">
+                 {{item}}
+        </li>
+     </ul>
 
 
 
-  <!-- <p style="" -->
 
-  <p [color]="'green'" [colorout]="'white'"  appColorDir> I am the paragrapth</p>
+     
+     <!-- After 20 charcters ... -->
 
-
-
-  <span [color]="'purple'" [colorout]="'yellow'"  appColorDir> I am span tag</span>
-
-
-  <!-- <input type="text" appColorDir> -->
-
-
-
-
-
+    </div>
+  </div>
 
 </div>

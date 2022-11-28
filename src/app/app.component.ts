@@ -5,10 +5,47 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
+
 export class AppComponent {
   title = 'AngularAdvancedConcepts';
 
-  value = 'titleForCustomersDetailsPage';
+  value = 'title For Customers Details Page of angular application';
+
+  name = `Angular is a platform for 
+  building mobile and desktop web 
+  applications. Join the community
+   of millions of developers who build
+   compelling user interfaces`;
+
+
+
+   
+  customers = [
+    'Customer A',
+    'Customer B',
+    'Customer C',
+    'Customer D',
+    'Customer E',
+  ];
+
+
+
+
+
+  //  Angular is a plaform .....
+
+
+
+   todayDate = new Date();
+
+
+
+
+
+
+
+
 
   customersInformation = [
     {
